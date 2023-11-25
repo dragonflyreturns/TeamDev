@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
+<x-app-layout>
+    
         <h1>チーム開発会へようこそ！</h1>
         <h2>投稿一覧画面</h2>
         <a href='/posts/create'>新規投稿</a>
+        <p>
+            テーマ：{{ $theme->theme }} 
+        </p>
         <div>
             @foreach ($posts as $post)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
-                    <p>
-                        タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
-                    </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+                    
+                    <p>本文：{{ $post->body }}</p>
+                    <p> 投稿者：{{ $post->user->name }}</p>
                 </div>
+                
+                @if($post->nices()->where('user_id', Auth::user()->id)->count() == 1)
+                  <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm">
+                      いいねを消す
+                      <span class="badge">{{ $post->nices->count() }}</span>
+                  </a>
+                @else
+                  <a href="{{ route('nice', $post) }}" class="btn btn-secondary btn-sm">
+                      いいねをつける
+                      <span class="badge">{{ $post->nices->count() }}</span>
+                  </a>
+                @endif
             @endforeach
         </div>
         <div>
             {{ $posts->links() }}
         </div>
-    </body>
-</html>
+    
+
+</x-app-layout>
