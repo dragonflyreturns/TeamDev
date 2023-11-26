@@ -1,5 +1,6 @@
 <x-app-layout>
-        <h1>テーマを作成する</h1>
+        <h1>朝楽テーマブログ</h1>
+        <h2>テーマを作成する</h2>
         <form action="/themes" method="POST">
             @csrf
             <div>

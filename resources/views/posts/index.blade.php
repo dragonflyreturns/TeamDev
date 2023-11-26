@@ -1,7 +1,7 @@
 <x-app-layout>
     
-        <h1>チーム開発会へようこそ！</h1>
-        <h2 class='text-red-700'>投稿一覧画面</h2>
+        <h1>朝楽テーマブログ</h1>
+        <h2 class='text-red-700 '>投稿一覧画面</h2>
         <h2>投稿可能時間は６時から９時までです！！！それ以外の時間では新規投稿ページが表示されません。</h2>
         <a href='/posts/create' class='newPost'>新規投稿</a>
         <h2>テーマ作成はこちら：<a href='/theme/create'>新規テーマ作成</a></h2>
