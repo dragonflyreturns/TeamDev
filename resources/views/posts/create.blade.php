@@ -1,5 +1,5 @@
 <x-app-layout>
-        <h1>チーム開発会へようこそ！</h1>
+        <h1>朝楽テーマブログ</h1>
         <h2>投稿作成</h2>
         <form action="/posts" method="POST">
             @csrf
