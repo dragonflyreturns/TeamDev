@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Theme extends Model
 {
+    protected $fillable = [
+        'theme',
+        'user_id',
+    ];
+    
     public function user()   
     {
-        return $this->BelongsTo(User::class);  
+        return $this->belongsTo(User::class);  
     }
     use HasFactory;
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NiceController;
+use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,5 +58,8 @@ Route::controller(NiceController::class)->middleware(['auth'])->group(function()
     Route::get('/unnice/{post}','unnice')->name('unnice');
 });
 
-
+Route::controller(ThemeController::class)->middleware(['auth'])->group(function(){
+    Route::get('/theme/create', 'create');
+    Route::post('/themes', 'store');
+});
 require __DIR__.'/auth.php';
