@@ -27,18 +27,28 @@ class PostController extends Controller
 
     public function create(Post $post, Theme $theme)
     {
-        $TargetTheme = $theme->where('is_selected', true)->first();
-        return view('posts/create')->with(['post' => $post->getPaginateByLimit(), 'theme' => $TargetTheme]);
+        $time = intval(date('H'));
+        // $time = 5;
+        if (6 <= $time && $time <= 9)
+        {
+            $TargetTheme = $theme->where('is_selected', true)->first();
+            return view('posts/create')->with(['post' => $post->getPaginateByLimit(), 'theme' => $TargetTheme]);
+        } else {
+            return redirect('/test');
+        }
     }
 
     public function store(Post $post, Request $request)
     {
         // $input['user_id'] = \Auth::id();
         // $post = $request['post'];
-        $post->user_id = \Auth::id();
-        $input = $request['post'];
-        $post->fill($input)->save();
-        return redirect('/');
+        
+        
+            $post->user_id = \Auth::id();
+            $input = $request['post'];
+            $post->fill($input)->save();
+            return redirect('/'); 
+        
     }
 
     public function edit(Post $post)
