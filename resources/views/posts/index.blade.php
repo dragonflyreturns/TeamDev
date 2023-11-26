@@ -15,6 +15,13 @@
                     <p> 投稿者：{{ $post->user->name }}</p>
                 </div>
                 
+                <form method="post" action="{{route('delete', $post)}}" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm">削除</button>
+                    
+                </form>
+                
                 
                 @if($post->nices()->where('user_id', Auth::user()->id)->count() == 1)
                   <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm">
