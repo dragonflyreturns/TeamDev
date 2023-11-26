@@ -18,5 +18,5 @@
             <input class="border border-black  bg-white hover:bg-gray-200 text-black rounded px-2 py-1 mt-4 mb-4" type="submit" value="保存"/>
         </form>
     </div>
-        <div class="underline text-blue-400"><a href="/">戻る</a></div>
+        <div class="underline text-blue-400 text-center"><a href="/">戻る</a></div>
 </x-app-layout>
