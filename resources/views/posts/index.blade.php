@@ -17,7 +17,7 @@
                     <p class='m-1'>{{$post->created_at}}</p>
                 </div>
                 
-                <div class='border border-black m-2 bg-red-200' style='margin-right: 64.5rem;'>
+                <div class='border border-black m-2 bg-red-200' style='margin-right: 92rem;'>
                 <form method="post" action="{{route('delete', $post)}}" style="display: inline;">
                     @csrf
                     @method('DELETE')
@@ -27,7 +27,7 @@
                 </div>
                 
                 
-                <div class='border border-black m-2' style=' margin-right: 60rem;'>
+                <div class='border border-black m-2' style=' margin-right: 88rem;'>
                 @if($post->nices()->where('user_id', Auth::user()->id)->count() == 1)
                 <div class='bg-green-400'>
                   <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm">
