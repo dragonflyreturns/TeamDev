@@ -11,11 +11,7 @@ class PostController extends Controller
 {
     public function index(Post $post, Theme $theme)
     {
-        // $time = intval(date('H'));
-        // $time = 5;
-        // if($time == 6){
-        //     $theme = Theme::inRandomOrder()->first();
-        // }
+        
         $TargetTheme = $theme->where('is_selected', true)->first();
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit(), 'theme' => $TargetTheme]);
     }
@@ -28,7 +24,7 @@ class PostController extends Controller
     public function create(Post $post, Theme $theme)
     {
         $time = intval(date('H'));
-        // $time = 5;
+        $time = 6;
         if (6 <= $time && $time <= 9)
         {
             $TargetTheme = $theme->where('is_selected', true)->first();
@@ -51,10 +47,7 @@ class PostController extends Controller
         
     }
 
-    public function edit(Post $post)
-    {
-        return view('posts/edit')->with(['post' => $post]);
-    }
+    
 
     public function update(Request $request, Post $post)
     {
@@ -64,6 +57,11 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
     
 
 }
