@@ -5,7 +5,7 @@
         @foreach ($user->posts as $post)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     
-                <p>honbun: {{ $post->body }}</p>
+                <p>本文: {{ $post->body }}</p>
                     
                 </div>
         @endforeach

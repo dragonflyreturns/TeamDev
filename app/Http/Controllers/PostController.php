@@ -16,8 +16,8 @@ class PostController extends Controller
         // if($time == 6){
         //     $theme = Theme::inRandomOrder()->first();
         // }
-        
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(), 'theme' => $theme]);
+        $TargetTheme = $theme->where('is_selected', true)->first();
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(), 'theme' => $TargetTheme]);
     }
 
     public function show(Post $post)
@@ -25,16 +25,20 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
 
-    public function create(Post $post)
+    public function create(Post $post, Theme $theme)
     {
-        return view('posts/create')->with(['post' => $post->getPaginateByLimit()]);
+        $TargetTheme = $theme->where('is_selected', true)->first();
+        return view('posts/create')->with(['post' => $post->getPaginateByLimit(), 'theme' => $TargetTheme]);
     }
 
     public function store(Post $post, Request $request)
     {
+        // $input['user_id'] = \Auth::id();
+        // $post = $request['post'];
+        $post->user_id = \Auth::id();
         $input = $request['post'];
         $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        return redirect('/');
     }
 
     public function edit(Post $post)

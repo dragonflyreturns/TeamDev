@@ -29,6 +29,9 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
     Route::get('history', 'index')->name('history');
+    Route::get('admin', 'admin')->name('admin');
+    Route::post('admin', 'store');
+    
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");

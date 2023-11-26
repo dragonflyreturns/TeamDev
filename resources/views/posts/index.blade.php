@@ -1,10 +1,10 @@
 <x-app-layout>
     
         <h1>チーム開発会へようこそ！</h1>
-        <h2>投稿一覧画面</h2>
-        <a href='/posts/create'>新規投稿</a>
+        <h2 class='text-red-700'>投稿一覧画面</h2>
+        <a href='/posts/create' >新規投稿</a>
         <p>
-            テーマ：{{ $theme->theme }} 
+            今日のテーマ：{{ $theme->theme }} 
         </p>
         <div>
             @foreach ($posts as $post)

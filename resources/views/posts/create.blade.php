@@ -4,7 +4,7 @@
         <form action="/posts" method="POST">
             @csrf
             <div>
-                <h2>テーマ：</h2>
+                <h2>今日のテーマ：{{$theme->theme}}</h2>
             </div>
             <div>
                 <h2>本文</h2>

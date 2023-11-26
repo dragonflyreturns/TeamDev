@@ -21,6 +21,11 @@
                     <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
                         {{ __('History') }}
                     </x-nav-link>
+                    @if (Auth::user()->id == 1)
+                     <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                        {{ __('Administrator') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
