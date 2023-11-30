@@ -24,7 +24,7 @@ class PostController extends Controller
     public function create(Post $post, Theme $theme)
     {
         $time = intval(date('H'));
-        $time = 6;
+        // $time = 6; 時間調整
         if (6 <= $time && $time <= 9)
         {
             $TargetTheme = $theme->where('is_selected', true)->first();

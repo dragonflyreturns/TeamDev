@@ -55,7 +55,7 @@
             function showOrHideLink(){
                 const currentTime = new Date();
                 const currentHour = currentTime.getHours();
-                const currentHour = 8;
+                // const currentHour = 7;　時間調整
                 
                 const showLink = currentHour >= 6 && currentHour <= 9;
                 
